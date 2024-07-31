@@ -14,8 +14,7 @@ class HomeLayoutDetails extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-              "assets/images/home layout/background_main/background_layout_screen_light.png"),
+          image: AssetImage("assets/images/home layout/background_main/background_layout_screen_light.png"),
           fit: BoxFit.fill,
         ),
       ),

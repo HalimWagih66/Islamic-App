@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islamic_app/core/utils/theme/text_theme_dark_app.dart';
-import 'package:islamic_app/core/utils/theme/theme_app.dart';
 import 'core/utils/app_router.dart';
 
 

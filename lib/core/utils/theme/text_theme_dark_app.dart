@@ -34,4 +34,10 @@ class TextThemeDarkApp implements ThemeApp{
       color: thirdDarkColor
   );
 
+  @override
+  Color primaryColor = primaryDarkColor;
+
+  @override
+  Color secondPrimaryColor = secondPrimaryDarkColor;
+
 }

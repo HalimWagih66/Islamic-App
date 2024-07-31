@@ -70,6 +70,7 @@ flutter:
   assets:
     - assets/images/home layout/icons BottomNavigationBar/
     - assets/images/home layout/background_main/
+    - assets/images/home layout/quran_tap/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

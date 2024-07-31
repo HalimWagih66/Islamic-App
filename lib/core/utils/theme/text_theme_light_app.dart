@@ -33,4 +33,10 @@ class TextThemeLightApp implements ThemeApp{
       color: thirdLightColor
   );
 
+  @override
+  Color primaryColor = primaryLightColor;
+
+  @override
+  Color secondPrimaryColor = secondPrimaryLightColor;
+
 }
