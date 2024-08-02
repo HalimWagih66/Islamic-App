@@ -44,6 +44,9 @@ dependencies:
   provider: ^6.1.2
   google_fonts: ^6.2.1
   flutter_screenutil: ^5.9.3
+  dartz: ^0.10.1
+  dio: ^5.5.0+1
+  connectivity_plus: ^6.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,6 +74,8 @@ flutter:
     - assets/images/home layout/icons BottomNavigationBar/
     - assets/images/home layout/background_main/
     - assets/images/home layout/quran_tap/
+    - assets/files/quran_date.json
+    - assets/files/information_about_the_surahs.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -84,10 +89,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

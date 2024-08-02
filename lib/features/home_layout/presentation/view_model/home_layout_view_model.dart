@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/core/base/base_view_model.dart';
-import 'package:islamic_app/features/taps/presentation/view/quran_tap.dart';
+import '../../../quran/quran_tap/presentation/view/quran_tap/view/quran_tap.dart';
 import '../../models/bottom_navigation_item_model.dart';
 import 'home_layout_navigator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -11,7 +11,14 @@ class TextThemeLightApp implements ThemeApp{
     fontWeight: FontWeight.w600,
     color: secondPrimaryLightColor
   );
-
+  @override
+  TextStyle font20SecondPrimaryRegularAmiri = TextStyle(
+      fontSize: 20.sp,
+      height: 3,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Amiri",
+      color: secondPrimaryLightColor
+  );
   @override
   TextStyle font25SecondPrimaryRegularInter = GoogleFonts.inter(
       fontSize: 25.sp,

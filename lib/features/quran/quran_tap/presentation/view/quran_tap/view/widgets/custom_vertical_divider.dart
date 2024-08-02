@@ -7,7 +7,7 @@ class CustomVerticalDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 45.h,
+      height: 55.h,
       child:  VerticalDivider(
         color: primaryColor,
         thickness: 3,
