@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const primaryLightColor = Color(0xffB7935F);
+const primaryLightColor = Color(0xffb7935f);
 const secondPrimaryLightColor = Color(0xff242424);
 const thirdLightColor = Color(0xffFFFFFF);
 
