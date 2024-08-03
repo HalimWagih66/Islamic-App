@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/core/base/base_view_model.dart';
 import '../../../quran/quran_tap/presentation/view/quran_tap/view/quran_tap.dart';
+import '../../../tasbeeh_tap/presentation/view/tasbeeh_tap_view.dart';
 import '../../models/bottom_navigation_item_model.dart';
 import 'home_layout_navigator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -16,9 +17,7 @@ class HomeLayoutViewModel extends BaseViewModel<HomeLayoutNavigator>{
     Container(
       color: Colors.transparent,
     ),
-    Container(
-      color: Colors.transparent,
-    ),
+    const TasbeehTapView(),
     Container(
       color: Colors.transparent,
     ),

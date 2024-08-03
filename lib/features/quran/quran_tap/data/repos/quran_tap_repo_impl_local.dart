@@ -15,5 +15,4 @@ class QuranTapRepoImplLocal implements QuranTapRepo{
     }
     return right(items);
   }
-
 }

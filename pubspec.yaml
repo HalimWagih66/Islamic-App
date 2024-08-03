@@ -76,6 +76,9 @@ flutter:
     - assets/images/home layout/quran_tap/
     - assets/files/quran_date.json
     - assets/files/information_about_the_surahs.json
+    - assets/images/home layout/Tasbeeh_tap/light/
+    - assets/images/home layout/Tasbeeh_tap/dark/
+    - assets/files/azkar.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
