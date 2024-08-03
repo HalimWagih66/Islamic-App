@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/features/tasbeeh_tap/presentation/view_model/tasbeeh_tap_view_model.dart';
+import 'package:islamic_app/features/azkar/azkar_tap/presentation/view_model/azkar_tap_view_model.dart';
 import 'package:provider/provider.dart';
 
 class DisplayZakrTitle extends StatelessWidget {
@@ -8,7 +8,7 @@ class DisplayZakrTitle extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    TasbeehTapViewModel tasbeehTapViewModel = Provider.of<TasbeehTapViewModel>(context);
+    AzkarTapViewModel tasbeehTapViewModel = Provider.of<AzkarTapViewModel>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 5),
       child: Container(

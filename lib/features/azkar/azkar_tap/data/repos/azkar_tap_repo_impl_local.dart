@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:islamic_app/core/errors/failure.dart';
 import 'package:islamic_app/core/utils/services/json/read_from_json.dart';
-import 'package:islamic_app/features/tasbeeh_tap/data/repos/tasbeeh_tap_repo.dart';
+import 'package:islamic_app/features/azkar/azkar_tap/data/repos/azkar_tap_repo.dart';
 
-class TasbeehTapRepoImplLocal implements TasbeehTapRepo{
+class AzkarTapRepoImplLocal implements AzkarTapRepo{
   @override
   Future<Either<Failure, List<String>>> fetchAzkarTitles() async{
     ReadFromJson readFromJson = ReadFromJson();
