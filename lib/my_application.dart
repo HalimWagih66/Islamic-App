@@ -11,23 +11,8 @@ class MyApplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (BuildContext context) => SettingsProvider(),
-      child: const App()
-    );
-  }
-}
-
-class App extends StatelessWidget {
-  const App({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    Provider.of<SettingsProvider>(context);
-    return Builder(
-      builder: (context) => MaterialApp.router(
+    var settingsProvider = Provider.of<SettingsProvider>(context);
+    return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
         localizationsDelegates: const [
@@ -36,12 +21,11 @@ class App extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        locale: Locale(Provider.of<SettingsProvider>(context,listen: false).languageCode),
+        locale: Locale(settingsProvider.languageCode),
         supportedLocales: const [
           Locale('en'), // English
           Locale('ar'), // Arabic
         ],
-      ),
     );
   }
 }
