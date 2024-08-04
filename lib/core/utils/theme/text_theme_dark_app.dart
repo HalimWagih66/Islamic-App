@@ -46,7 +46,10 @@ class TextThemeDarkApp implements ThemeApp{
       height: 3,
       fontWeight: FontWeight.w400,
       fontFamily: "Amiri",
-      color: secondPrimaryLightColor
+      color: secondPrimaryDarkColor
   );
+
+  @override
+  Color thirdPrimaryColor = thirdDarkColor;
 
 }

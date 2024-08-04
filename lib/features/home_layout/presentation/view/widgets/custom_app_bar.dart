@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/features/home_layout/presentation/view_model/home_layout_view_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../../provider/settings_provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   const CustomAppBar({super.key, required this.title,this.leading});
@@ -8,11 +9,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   final Widget? leading;
   @override
   Widget build(BuildContext context) {
-    HomeLayoutViewModel homeLayoutViewModel = Provider.of<HomeLayoutViewModel>(context);
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return AppBar(
       backgroundColor: Colors.transparent,
       centerTitle: true,
-      title: Text(title,style: homeLayoutViewModel.themeApp.font25SecondPrimarySemiBoldElMessiri),
+      title: Text(title,style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri),
       leading: leading,
     );
   }
