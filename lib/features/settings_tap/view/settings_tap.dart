@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islamic_app/features/settings_tap/view/widget/custom_bottom_sheet_for_language.dart';
 import 'package:islamic_app/features/settings_tap/view/widget/custom_bottom_sheet_for_theme.dart';
 import 'package:islamic_app/features/settings_tap/view/widget/field_choose_app_state.dart';
 import 'package:provider/provider.dart';
@@ -50,16 +51,14 @@ class SettingsTap extends StatelessWidget {
   }
 
   void showThemeBottomSheet(BuildContext context) {
-    var provider = Provider.of<SettingsProvider>(context,listen: false);
     showModalBottomSheet(
-        context: context, builder: (context) => CustomBottomSheetForTheme(textButtonTheFirst: 'Light', textButtonTheSecond: 'Dark',background: provider.themeApp.thirdPrimaryColor));
+        context: context, builder: (context) => const CustomBottomSheetForTheme());
   }
 
   void showLanguageBottomSheet(BuildContext context) {
-    var provider = Provider.of<SettingsProvider>(context,listen: false);
     showModalBottomSheet(
       context: context,
-      builder: (context) =>  const SizedBox()
+      builder: (context) =>  const CustomBottomSheetForLanguage()
     );
   }
 }
