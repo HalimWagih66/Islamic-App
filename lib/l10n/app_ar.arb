@@ -3,7 +3,7 @@
   "surah_name": "اسم السوره",
   "quran": "قران",
   "hadith": "حديث",
-  "tasbeeh": "تسبيح",
+  "azkar": "اذكار",
   "radio": "الاذاعه",
   "dadiths": "الاحاديث",
   "settings": "الاعدادات",
@@ -13,5 +13,4 @@
   "language": "اللغه",
   "number_of_praises": "عدد التسبيحات",
   "number_of_verses": "عدد الايات"
-
 }

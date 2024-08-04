@@ -46,4 +46,6 @@ class TextThemeLightApp implements ThemeApp{
   @override
   Color secondPrimaryColor = secondPrimaryLightColor;
 
+  @override
+  Color thirdPrimaryColor = thirdLightColor;
 }
