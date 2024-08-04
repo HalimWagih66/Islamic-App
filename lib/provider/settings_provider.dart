@@ -2,37 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:islamic_app/core/utils/theme/text_theme_dark_app.dart';
 import 'package:islamic_app/core/utils/theme/text_theme_light_app.dart';
 import 'package:islamic_app/core/utils/theme/theme_app.dart';
-import '../core/utils/shared/cache/share_preferences/settings_app_data.dart';
+import '../core/utils/shared/cache/share_preferences/cache_app_settings_app.dart';
 
 class SettingsProvider extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;
   ThemeApp themeApp = TextThemeLightApp();
   String _languageCode = "ar";
-  SettingsProvider(BuildContext context) {
-    initializeValues(context);
+  SettingsProvider() {
+    initializeValues();
   }
-  void initializeValues(BuildContext context)async{
-    initializeThemeMode(context);
-    initializeLanguageCode(context);
+  void initializeValues()async{
+    initializeThemeMode();
+    initializeLanguageCode();
     notifyListeners();
   }
 
-  void initializeLanguageCode(BuildContext context) {
-    if(SettingsAppData.getLanguageCode() == null){
+  void initializeLanguageCode() {
+    if(CacheAppSettingApp.getLanguageCode() == null){
       _languageCode = 'ar';
     }else{
-      _languageCode = SettingsAppData.getLanguageCode()!;
+      _languageCode = CacheAppSettingApp.getLanguageCode()!;
     }
   }
 
-  void initializeThemeMode(BuildContext context) {
-    if(SettingsAppData.getStateThemeModeApp() == null){
-      var platformBrightness = MediaQuery.of(context).platformBrightness;
-      _themeMode = platformBrightness == Brightness.dark?ThemeMode.dark:ThemeMode.light;
-      themeApp = platformBrightness == Brightness.dark?TextThemeDarkApp():TextThemeLightApp();
+  void initializeThemeMode() {
+    if(CacheAppSettingApp.getStateThemeModeApp() == null){
+      _themeMode = ThemeMode.system;
+      themeApp = ThemeMode.system == ThemeMode.dark?TextThemeDarkApp():TextThemeLightApp();
     }else{
-      _themeMode = SettingsAppData.getStateThemeModeApp() == "dark"?ThemeMode.dark:ThemeMode.light;
-      themeApp = SettingsAppData.getStateThemeModeApp() == "dark"?TextThemeDarkApp():TextThemeLightApp();
+      _themeMode = CacheAppSettingApp.getStateThemeModeApp() == "dark"?ThemeMode.dark:ThemeMode.light;
+      themeApp = CacheAppSettingApp.getStateThemeModeApp() == "dark"?TextThemeDarkApp():TextThemeLightApp();
     }
   }
   ThemeMode get themeMode => _themeMode;
@@ -54,13 +53,13 @@ class SettingsProvider extends ChangeNotifier {
   }
   Future<void> changeLanguageApp(String languageCode)async{
     this.languageCode = languageCode;
-    await SettingsAppData.saveLanguageCode(languageCode);
+    await CacheAppSettingApp.saveLanguageCode(languageCode);
     notifyListeners();
   }
   Future<void> changeThemeMode(ThemeMode themeMode)async{
     this.themeMode = themeMode;
     themeApp = themeMode == ThemeMode.dark?TextThemeDarkApp():TextThemeLightApp();
-    await SettingsAppData.savedStateThemeModeApp(themeMode);
+    await CacheAppSettingApp.savedStateThemeModeApp(themeMode);
     notifyListeners();
   }
   String getMainBackground() {

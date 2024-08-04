@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/core/utils/constants/shared_preferences_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class SettingsAppData{
-  static late SharedPreferences settingsAppData;
+
+class CacheAppSettingApp{
+  static late SharedPreferences cacheAppSettingApp;
   static Future<void>saveLanguageCode(String languageCode)async{
-    await settingsAppData.setString(languageCodeKey, languageCode);
+    await cacheAppSettingApp.setString(languageCodeKey, languageCode);
   }
   static Future<void>savedStateThemeModeApp(ThemeMode theme)async{
-    await settingsAppData.setString(themeAppKey, theme.name);
+    await cacheAppSettingApp.setString(themeAppKey, theme.name);
   }
   static String? getLanguageCode()  {
-    return settingsAppData.getString(languageCodeKey);
+    return cacheAppSettingApp.getString(languageCodeKey);
   }
   static String? getStateThemeModeApp()  {
-    return settingsAppData.getString(themeAppKey);
+    return cacheAppSettingApp.getString(themeAppKey);
   }
 }

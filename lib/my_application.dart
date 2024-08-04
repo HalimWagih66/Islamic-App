@@ -12,7 +12,7 @@ class MyApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (BuildContext context) => SettingsProvider(context),
+      create: (BuildContext context) => SettingsProvider(),
       child: Builder(
         builder: (context) => MaterialApp.router(
           debugShowCheckedModeBanner: false,
