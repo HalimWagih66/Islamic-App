@@ -13,23 +13,35 @@ class MyApplication extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (BuildContext context) => SettingsProvider(),
-      child: Builder(
-        builder: (context) => MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          locale: Locale(Provider.of<SettingsProvider>(context,listen: false).languageCode),
-          supportedLocales: const [
-            Locale('en'), // English
-            Locale('ar'), // Arabic
-          ],
-        ),
-      )
+      child: const App()
+    );
+  }
+}
+
+class App extends StatelessWidget {
+  const App({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Provider.of<SettingsProvider>(context);
+    return Builder(
+      builder: (context) => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        locale: Locale(Provider.of<SettingsProvider>(context,listen: false).languageCode),
+        supportedLocales: const [
+          Locale('en'), // English
+          Locale('ar'), // Arabic
+        ],
+      ),
     );
   }
 }

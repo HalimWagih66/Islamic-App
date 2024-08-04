@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/features/settings_tap/view/widget/custom_background_container.dart';
 import 'package:provider/provider.dart';
 import '../../../../../provider/settings_provider.dart';
-import 'button_style_bottom_sheet.dart';
-class CustomBottomSheetForTheme extends StatelessWidget {
-  const CustomBottomSheetForTheme({super.key});
-
+import 'custom_background_container.dart';
+import 'custom_elevated_button_for_bottom_sheet.dart';
+class CustomBottomSheetForLanguage extends StatelessWidget {
+  const CustomBottomSheetForLanguage({super.key});
   @override
   Widget build(BuildContext context) {
     var settingsProvider =  Provider.of<SettingsProvider>(context);
@@ -13,23 +12,21 @@ class CustomBottomSheetForTheme extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ElevatedButton(
-            style: buttonStyleBottomSheet(alignmentGeometry: settingsProvider.isLanguageEnglish()?Alignment.centerLeft:Alignment.centerRight,context:context,backgroundColor: settingsProvider.isDarkEnabled() ? const Color(0x64414d7c) : const Color(0x51eacc92)),
-              onPressed: () async{
-                await settingsProvider.changeThemeMode(ThemeMode.light);
-              },
-              child: firstChild(context),
+          CustomElevatedButtonForBottomSheet(
+            child: firstChild,
+            onPressed: ()async{
+               await settingsProvider.changeLanguageApp("en");
+            },
           ),
            SizedBox(
             height: MediaQuery.of(context).size.height * .04,
           ),
-          ElevatedButton(
-            style: buttonStyleBottomSheet(alignmentGeometry: settingsProvider.isLanguageEnglish()?Alignment.centerLeft:Alignment.centerRight,context:context,backgroundColor: settingsProvider.isDarkEnabled() ? const Color(0x64414d7c) : const Color(0x51eacc92)),
-              onPressed: () async{
-                await settingsProvider.changeThemeMode(ThemeMode.dark);
-              },
-              child: secondChild(context),
-          )
+          CustomElevatedButtonForBottomSheet(
+            child: secondChild,
+            onPressed: ()async{
+              await settingsProvider.changeLanguageApp("ar");
+            },
+          ),
         ],
       ),
     );
@@ -52,10 +49,10 @@ class CustomBottomSheetForTheme extends StatelessWidget {
   }
   Widget firstChild(BuildContext context){
     var provider = Provider.of<SettingsProvider>(context,listen: false);
-    return provider.isDarkEnabled() ? getUnSelectedWidget("Light", context) : getSelectedWidget("Light", context);
+    return provider.isLanguageEnglish() ? getSelectedWidget("English", context): getUnSelectedWidget("English", context);
   }
   Widget secondChild(BuildContext context){
     var provider = Provider.of<SettingsProvider>(context,listen: false);
-    return provider.isDarkEnabled() ? getSelectedWidget("Dark", context) : getUnSelectedWidget("Dark", context);
+    return provider.isLanguageEnglish() ? getUnSelectedWidget("العربيه", context) : getSelectedWidget("العربيه", context);
   }
 }
