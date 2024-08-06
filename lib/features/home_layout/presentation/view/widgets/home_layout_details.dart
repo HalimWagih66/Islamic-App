@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/core/utils/widgets/custom_background_container_for_app.dart';
 import 'package:islamic_app/features/home_layout/presentation/view_model/home_layout_view_model.dart';
 import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -13,13 +14,7 @@ class HomeLayoutDetails extends StatelessWidget {
     var homeLayoutViewModel = Provider.of<HomeLayoutViewModel>(context);
     var settingsProvider = Provider.of<SettingsProvider>(context);
     List<String> tapsName = homeLayoutViewModel.listOfTapsName(context);
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(settingsProvider.getMainBackground()),
-          fit: BoxFit.fill,
-        ),
-      ),
+    return CustomBackgroundContainerForApp(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: CustomAppBar(title: tapsName[homeLayoutViewModel.selectedItem]),
