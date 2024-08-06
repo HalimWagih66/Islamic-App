@@ -15,16 +15,22 @@ class HeaderOfTheSurah extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(settingsProvider.isLanguageEnglish()? quranDetailsViewModel.informationAboutTheSurahModel.englishName??"":  quranDetailsViewModel.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font12SecondPrimaryRegularInter),
+        Text(getSurahName(settingsProvider, quranDetailsViewModel),style: settingsProvider.themeApp.font12SecondPrimaryRegularInter),
         Row(
           children: [
-            Text("${AppLocalizations.of(context)!.aljuz} : ${ArabicNumbers.convert(quranDetailsViewModel.pageVerses[quranDetailsViewModel.pageVerses.length-1].juz!.toInt())}",style: settingsProvider.themeApp.font12SecondPrimaryRegularInter,textDirection: TextDirection.rtl,),
+            Text("${AppLocalizations.of(context)!.aljuz} : ",style: settingsProvider.themeApp.font12SecondPrimaryRegularInter,),
+            Text("${getAljuzNumber(settingsProvider, quranDetailsViewModel)}",style: settingsProvider.themeApp.font12SecondPrimaryRegularInter,),
+
             const DisplayBookMark()
           ],
         ),
       ],
     );
   }
+
+  String getSurahName(SettingsProvider settingsProvider, QuranDetailsViewModel quranDetailsViewModel) => settingsProvider.isLanguageEnglish()? quranDetailsViewModel.informationAboutTheSurahModel.englishName??"":  quranDetailsViewModel.informationAboutTheSurahModel.name??"";
+
+  Object getAljuzNumber(SettingsProvider settingsProvider, QuranDetailsViewModel quranDetailsViewModel) => settingsProvider.isLanguageEnglish()?quranDetailsViewModel.pageVerses[quranDetailsViewModel.pageVerses.length-1].juz!.toInt(): ArabicNumbers.convert(quranDetailsViewModel.pageVerses[quranDetailsViewModel.pageVerses.length-1].juz!.toInt());
 }
 
 

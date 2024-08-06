@@ -50,6 +50,7 @@ dependencies:
   shared_preferences: ^2.3.1
   audioplayers: ^5.2.1
   flutter_svg: ^2.0.10+1
+  font_awesome_flutter: ^10.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -78,12 +79,14 @@ flutter:
     - assets/images/home layout/background_main/
     - assets/images/home layout/quran_tap/
     - assets/files/quran_data.json
+    - assets/images/home layout/azkar_tap/
     - assets/files/information_about_the_surahs.json
     - assets/images/home layout/azkar_tap/light/
     - assets/images/home layout/azkar_tap/dark/
     - assets/files/azkar.json
     - assets/images/home layout/radio_tap/
     - assets/images/details_screen/quran_details/
+    - assets/files/tasbeeh.txt
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -9,7 +9,9 @@ class QuranDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: QuranDetailsBody(informationAboutTheSurahModel: informationAboutTheSurahModel),
+      body: Directionality(
+         textDirection: TextDirection.rtl,
+          child: QuranDetailsBody(informationAboutTheSurahModel: informationAboutTheSurahModel)),
     );
   }
 }

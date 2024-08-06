@@ -7,18 +7,26 @@ import 'package:provider/provider.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
+
   static const routeName = "/";
+
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
 }
 
-class _HomeLayoutState extends BaseState<HomeLayout, HomeLayoutViewModel> implements HomeLayoutNavigator {
+class _HomeLayoutState extends BaseState<HomeLayout, HomeLayoutViewModel>
+    implements HomeLayoutNavigator {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => viewModel,
-        child: const HomeLayoutDetails());
+      child: const Directionality(
+        textDirection: TextDirection.rtl,
+        child: HomeLayoutDetails(),
+      ),
+    );
   }
+
   @override
   HomeLayoutViewModel initializeViewModel() {
     return HomeLayoutViewModel();

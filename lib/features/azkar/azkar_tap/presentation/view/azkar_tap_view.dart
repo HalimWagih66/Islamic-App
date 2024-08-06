@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/core/base/base_state.dart';
-import 'package:islamic_app/features/azkar/azkar_tap/presentation/view/widget/tasbeeh_tap_body.dart';
+import 'package:islamic_app/features/azkar/azkar_tap/presentation/view/widget/azkar_tap_body.dart';
 import 'package:islamic_app/features/azkar/azkar_tap/presentation/view_model/azkar_tap_navigator.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class _AzkarTapViewState extends BaseState<AzkarTapView,AzkarTapViewModel> imple
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => viewModel,
-      child: const Center(child: TasbeehTapBody()),
+      child: const Center(child: AzkarTapBody()),
     );
   }
 
