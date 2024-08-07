@@ -5,10 +5,9 @@ import 'package:islamic_app/features/quran/quran_tap/data/model/Data.dart';
 import 'package:islamic_app/features/quran/quran_tap/data/repos/quran_tap_repo.dart';
 
 class QuranTapRepoImplLocal implements QuranTapRepo{
-  ReadFromJson readFromJson = ReadFromJson();
   @override
   Future<Either<Failure, List<InformationAboutTheSurahModel>>> fetchInformationAboutTheSurah() async {
-    var result = await readFromJson.loadData("assets/files/information_about_the_surahs.json");
+    var result = await ReadFromJson.loadData("assets/files/information_about_the_surahs.json");
     List<InformationAboutTheSurahModel> items = [];
     for(int i = 0 ; i < result.length; i++){
       items.add(InformationAboutTheSurahModel.fromJson(result[i]));

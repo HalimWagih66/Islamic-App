@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/features/azkar/azkar_tap/presentation/view_model/azkar_tap_view_model.dart';
 import 'package:provider/provider.dart';
-
 import '../../../../../../core/utils/widgets/custom_circular_progress_indicator.dart';
-import 'custom_elevated_button.dart';
+import 'display_list_of_azkar.dart';
 
-class DisplayListAzkarTitle extends StatefulWidget {
-  const DisplayListAzkarTitle({super.key});
+class DisplayBodyTheAzkar extends StatefulWidget {
+  const DisplayBodyTheAzkar({super.key});
 
   @override
-  State<DisplayListAzkarTitle> createState() => _DisplayListAzkarTitleState();
+  State<DisplayBodyTheAzkar> createState() => _DisplayBodyTheAzkarState();
 }
 
-class _DisplayListAzkarTitleState extends State<DisplayListAzkarTitle> {
+class _DisplayBodyTheAzkarState extends State<DisplayBodyTheAzkar> {
   @override
   void initState() {
     super.initState();
@@ -24,7 +23,9 @@ class _DisplayListAzkarTitleState extends State<DisplayListAzkarTitle> {
     if(tasbeehTapViewModel.azkarTitles.isEmpty){
       return const SliverFillRemaining(child: CustomCircularProgressIndicator());
     }else{
-      return SliverList.builder(itemCount: tasbeehTapViewModel.azkarTitles.length,itemBuilder: (context, index) => DisplayZakrTitle(onPressed: () {},title: tasbeehTapViewModel.azkarTitles[index],),);
+      return DisplayListOfAzkar(tasbeehTapViewModel: tasbeehTapViewModel);
     }
   }
 }
+
+

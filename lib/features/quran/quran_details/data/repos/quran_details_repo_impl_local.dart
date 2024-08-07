@@ -7,8 +7,7 @@ import '../model/surah_model.dart';
 class QuranDetailsRepoImplLocal implements QuranDetailsRepo{
   @override
   Future<Either<Failure, SurahModel>> fetchVersesOfTheSurah(int surahNumber) async{
-    ReadFromJson readFromJson = ReadFromJson();
-    var result = await readFromJson.loadData("assets/files/quran_data.json");
+    var result = await ReadFromJson.loadData("assets/files/quran_data.json");
     SurahModel surahModel = SurahModel.fromJson(result['data']['surahs'][surahNumber]);
     return right(surahModel);
   }

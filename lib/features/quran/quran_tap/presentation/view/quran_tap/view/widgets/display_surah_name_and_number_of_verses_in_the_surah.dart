@@ -21,7 +21,6 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
   @override
   void initState() {
     super.initState();
-
     CacheMarkQuran.getMarkQuran();
   }
   @override
