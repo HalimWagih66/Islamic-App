@@ -18,7 +18,6 @@ Future<void> main() async {
   CacheRadioApp.cacheRadioApp = await SharedPreferences.getInstance();
   CacheMarkQuran.cacheMarkQuran = await SharedPreferences.getInstance();
   CacheTasbeeh.cacheTasbeeh = await SharedPreferences.getInstance();
- // ReadFileFromTxt.loadData("assets/files/tasbeeh.txt");
   runApp(
     ScreenUtilInit(
       designSize: const Size(412, 873),

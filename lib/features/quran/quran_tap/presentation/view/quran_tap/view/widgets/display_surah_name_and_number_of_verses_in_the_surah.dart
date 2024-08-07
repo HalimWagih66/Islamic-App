@@ -21,6 +21,7 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
   @override
   void initState() {
     super.initState();
+
     CacheMarkQuran.getMarkQuran();
   }
   @override
@@ -74,7 +75,6 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
         children: [
           SvgPicture.asset("assets/images/details_screen/quran_details/bookmark.svg",color: Colors.red,height: 30,width: 30),
           const SizedBox(width: 5),
-
         ],
       );
     }else{

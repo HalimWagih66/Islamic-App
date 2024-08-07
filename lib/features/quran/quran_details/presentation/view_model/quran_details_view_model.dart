@@ -14,7 +14,6 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
   QuranDetailsRepo quranDetailsRepo;
   bool isFirstPageViewBuilder = true;
   final audioPlayer = AudioPlayer();
-
   late InformationAboutTheSurahModel informationAboutTheSurahModel;
   SurahModel surahModel = SurahModel();
   List<AyahModel> pageVerses = [];
@@ -27,17 +26,20 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
       notifyListeners();
     },);
   }
+
   void filterTheSurahByPage({required int page, required int surahNumber}){
     //delete basmallah from Al-Faatiha surah
     pageVerses.clear();
-    int i = surahNumber == 1 ? 1 : 0;
-    for(;i < surahModel.ayahs!.length ; i++){
-      if(surahModel.ayahs?[i].pageInSurah == page){
-        pageVerses.add(surahModel.ayahs![i]);
+    int index = surahNumber == 1 ? 1 : 0;
+    for(;index < surahModel.ayahs!.length;index++){
+      if(surahModel.ayahs?[index].pageInSurah == page){
+        pageVerses.add(surahModel.ayahs![index]);
       }
     }
     notifyListeners();
   }
+
+
   Future<void>soundTheAya(String url)async {
     if (!isTheSoundPlay) {
       await playSoundTheAya(url);

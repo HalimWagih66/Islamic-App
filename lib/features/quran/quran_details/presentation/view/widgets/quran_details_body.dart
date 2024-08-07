@@ -18,6 +18,7 @@ class _QuranDetailsBodyState extends State<QuranDetailsBody> {
   @override
   void initState() {
     super.initState();
+    Provider.of<QuranDetailsViewModel>(context,listen: false).isFirstPageViewBuilder = true;
     Provider.of<QuranDetailsViewModel>(context,listen: false).informationAboutTheSurahModel = widget.informationAboutTheSurahModel;
     fetchAyahs();
   }
