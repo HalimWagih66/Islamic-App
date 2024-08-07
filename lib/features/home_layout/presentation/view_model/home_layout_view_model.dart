@@ -26,9 +26,9 @@ class HomeLayoutViewModel extends BaseViewModel<HomeLayoutNavigator>{
   List<String> listOfTapsName(BuildContext context){
     return [
       AppLocalizations.of(context)!.quran,
-      AppLocalizations.of(context)!.hadith,
-      AppLocalizations.of(context)!.radio,
       AppLocalizations.of(context)!.azkar,
+      AppLocalizations.of(context)!.radio,
+      AppLocalizations.of(context)!.tasbeeh,
       AppLocalizations.of(context)!.settings
     ];
   }
