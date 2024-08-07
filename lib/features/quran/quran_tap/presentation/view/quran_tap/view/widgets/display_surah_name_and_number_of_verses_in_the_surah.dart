@@ -21,6 +21,7 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
   @override
   void initState() {
     super.initState();
+
     CacheMarkQuran.getMarkQuran();
   }
   @override
@@ -35,6 +36,11 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
           Directionality(
             textDirection: TextDirection.ltr,
             child: Table(
+              columnWidths: const {
+                0:FlexColumnWidth(3),
+                1:FlexColumnWidth(1),
+                2:FlexColumnWidth(3)
+              },
               children: [
                 TableRow(
                     decoration: BoxDecoration(
@@ -44,10 +50,10 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
                       Text(widget.informationAboutTheSurahModel.numberOfAyahs.toString(),style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri.copyWith(fontSize: 20.sp,height: 3),textAlign: TextAlign.center),
                       CustomVerticalDivider(primaryColor: settingsProvider.themeApp.primaryColor),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           getBookMark(),
-                          const SizedBox(width: 10),
-                          Text(settingsProvider.isLanguageEnglish()?widget.informationAboutTheSurahModel.englishName??"":widget.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri,textAlign: TextAlign.center),
+                          Center(child: Text(settingsProvider.isLanguageEnglish()?widget.informationAboutTheSurahModel.englishName??"":widget.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri,textAlign: TextAlign.center)),
                         ],
                       )
                     ]
@@ -65,7 +71,12 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
       return const SizedBox();
     }
     if(bookMark['surahNumber'] == widget.informationAboutTheSurahModel.number){
-      return SvgPicture.asset("assets/images/details_screen/quran_details/bookmark.svg",color: Colors.red,height: 30,width: 30);
+      return Row(
+        children: [
+          SvgPicture.asset("assets/images/details_screen/quran_details/bookmark.svg",color: Colors.red,height: 30,width: 30),
+          const SizedBox(width: 5),
+        ],
+      );
     }else{
       return const SizedBox();
     }
