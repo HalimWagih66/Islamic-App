@@ -6,8 +6,7 @@ import 'package:islamic_app/features/azkar/azkar_tap/data/repos/azkar_tap_repo.d
 class AzkarTapRepoImplLocal implements AzkarTapRepo{
   @override
   Future<Either<Failure, List<String>>> fetchAzkarTitles() async{
-    ReadFromJson readFromJson = ReadFromJson();
-    var result = await readFromJson.loadData("assets/files/azkar.json");
+    var result = await ReadFromJson.loadData("assets/files/azkar.json");
     List<String> items = [];
     items.add(result['data'][0]["category"]);
     for(int i = 0 ; i < result['data'].length-1;i++){

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/features/azkar/azkar_tap/presentation/view/widget/show_image_in_azkar_header.dart';
 
-import 'display_list_azkar_title.dart';
+import 'display_body_the_azkar.dart';
 
 class AzkarTapBody extends StatelessWidget {
   const AzkarTapBody({super.key});
@@ -16,7 +16,7 @@ class AzkarTapBody extends StatelessWidget {
             height: 40,
           ),
         ),
-        DisplayListAzkarTitle()
+        DisplayBodyTheAzkar()
       ],
     );
   }
