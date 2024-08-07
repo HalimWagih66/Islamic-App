@@ -5,15 +5,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheAppSettingApp{
   static late SharedPreferences cacheAppSettingApp;
   static Future<void>saveLanguageCode(String languageCode)async{
-    await cacheAppSettingApp.setString(languageCodeKey, languageCode);
+    await cacheAppSettingApp.setString(LANGUAGE_CODE_KEY, languageCode);
   }
   static Future<void>savedStateThemeModeApp(ThemeMode theme)async{
-    await cacheAppSettingApp.setString(themeAppKey, theme.name);
+    await cacheAppSettingApp.setString(THEME_APP_KEY, theme.name);
   }
   static String? getLanguageCode()  {
-    return cacheAppSettingApp.getString(languageCodeKey);
+    return cacheAppSettingApp.getString(LANGUAGE_CODE_KEY);
   }
   static String? getStateThemeModeApp()  {
-    return cacheAppSettingApp.getString(themeAppKey);
+    return cacheAppSettingApp.getString(THEME_APP_KEY);
   }
 }

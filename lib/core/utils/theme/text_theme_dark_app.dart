@@ -22,7 +22,7 @@ class TextThemeDarkApp implements ThemeApp{
 
   @override
   TextStyle font12SecondPrimaryRegularInter = GoogleFonts.inter(
-      fontSize: 12.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w400,
       color: secondPrimaryDarkColor
   );
@@ -51,5 +51,14 @@ class TextThemeDarkApp implements ThemeApp{
 
   @override
   Color thirdPrimaryColor = thirdDarkColor;
+
+  @override
+  TextStyle fontElquran = TextStyle(
+    fontFamily: "UthmanicHafs",
+    fontSize: 25.sp,
+    height: 2,
+    color: secondPrimaryDarkColor,
+    fontWeight: FontWeight.w500,
+  );
 
 }

@@ -9,4 +9,5 @@ class ThemeApp{
    late final TextStyle font12SecondPrimaryRegularInter;
    late final TextStyle font25ThirdColorRegularInter;
    late final TextStyle font20SecondPrimaryRegularAmiri;
+   late final TextStyle fontElquran;
 }

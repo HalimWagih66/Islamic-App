@@ -28,7 +28,7 @@ class TextThemeLightApp implements ThemeApp{
 
   @override
   TextStyle font12SecondPrimaryRegularInter = GoogleFonts.inter(
-      fontSize: 12.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w400,
       color: secondPrimaryLightColor
   );
@@ -48,4 +48,12 @@ class TextThemeLightApp implements ThemeApp{
 
   @override
   Color thirdPrimaryColor = thirdLightColor;
+
+  @override
+  TextStyle fontElquran = TextStyle(
+    fontFamily: "UthmanicHafs",
+    fontSize: 25.sp,
+    color: secondPrimaryLightColor,
+    fontWeight: FontWeight.w500,
+  );
 }
