@@ -8,6 +8,7 @@ import 'package:islamic_app/features/azkar/azkar_details/presentation/view_model
 import 'package:islamic_app/features/azkar/azkar_details/presentation/view_model/azkar_details_view_model.dart';
 import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
+import '../../../../../core/utils/widgets/show_toast.dart';
 import '../../../../home_layout/presentation/view/widgets/custom_app_bar.dart';
 
 class AzkarDetailsView extends StatefulWidget {
@@ -51,5 +52,10 @@ class _AzkarDetailsViewState
   @override
   AzkarDetailsViewModel initializeViewModel() {
     return AzkarDetailsViewModel(AzkarDetailsRepoLocal());
+  }
+
+  @override
+  Future<void> displayToast(String message) async{
+    await showToast(msg: message,textColor: Provider.of<SettingsProvider>(context,listen: false).themeApp.secondPrimaryColor,backgroundColor: Provider.of<SettingsProvider>(context,listen: false).themeApp.thirdPrimaryColor);
   }
 }
