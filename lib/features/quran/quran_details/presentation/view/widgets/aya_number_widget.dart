@@ -10,7 +10,7 @@ TextSpan ayaNumberWidget(
     {required BuildContext context, required int ayaNumber,required String urlSound}){
   var settingsProvider = Provider.of<SettingsProvider>(context,listen: false);
   return TextSpan(
-    text: settingsProvider.isDarkEnabled()?" ${ArabicNumbers.convert(ayaNumber)} " : "﴾ $ayaNumber ﴿",
+    text: " ${ArabicNumbers.convert(ayaNumber)} ",
   style: settingsProvider.themeApp.fontElquran.copyWith(fontSize: 35),
     recognizer: LongPressGestureRecognizer()..onLongPress = () async {
     await Provider.of<QuranDetailsViewModel>(context,listen: false).soundTheAya(urlSound);
