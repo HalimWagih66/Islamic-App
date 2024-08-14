@@ -13,6 +13,8 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
   QuranDetailsViewModel(this.quranDetailsRepo);
   QuranDetailsRepo quranDetailsRepo;
   bool isFirstPageViewBuilder = true;
+  int lastPage = -1;
+  int countTheAyahs = 0;
   final audioPlayer = AudioPlayer();
   late InformationAboutTheSurahModel informationAboutTheSurahModel;
   SurahModel surahModel = SurahModel();
@@ -28,15 +30,47 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
   }
 
   void filterTheSurahByPage({required int page, required int surahNumber}){
-    //delete basmallah from Al-Faatiha surah
-    pageVerses.clear();
-    int index = surahNumber == 1 ? 1 : 0;
-    for(;index < surahModel.ayahs!.length;index++){
-      if(surahModel.ayahs?[index].pageInSurah == page){
-        pageVerses.add(surahModel.ayahs![index]);
-      }
+    setValueInCountTheAyahs(surahNumber);
+    if(page > lastPage){
+      casePageViewIsNext(page);
+    }else{
+      casePageViewIsPrevious(page);
     }
+    lastPage = page;
     notifyListeners();
+  }
+
+  void setValueInCountTheAyahs(int surahNumber) {
+    //delete basmallah from Al-Faatiha surah
+    if(surahNumber == 1){
+      countTheAyahs = 1;
+    }else if(lastPage == -1){
+      countTheAyahs = 0;
+    }
+  }
+
+  void casePageViewIsPrevious(int page) {
+    countTheAyahs -= (pageVerses.length + 1);
+    pageVerses.clear();
+    while(surahModel.ayahs?[countTheAyahs].pageInSurah?.toInt() == page){
+      countTheAyahs--;
+      if(countTheAyahs == 0)break;
+    }
+    if(countTheAyahs != 0)countTheAyahs += 1;
+    while(surahModel.ayahs?[countTheAyahs].pageInSurah?.toInt() == page){
+      pageVerses.add(surahModel.ayahs![countTheAyahs]);
+      countTheAyahs++;
+      if(countTheAyahs == surahModel.ayahs?.length)break;
+    }
+  }
+
+  void casePageViewIsNext(int page) {
+     pageVerses.clear();
+    while(surahModel.ayahs?[countTheAyahs].pageInSurah?.toInt() == page){
+      pageVerses.add(surahModel.ayahs![countTheAyahs]);
+      countTheAyahs++;
+      if(countTheAyahs == surahModel.ayahs?.length)break;
+    }
   }
 
 
