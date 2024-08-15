@@ -10,7 +10,7 @@ class DisplaySurahName extends StatelessWidget {
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
     var quranDetailsViewModel = Provider.of<QuranDetailsViewModel>(context);
-    return quranDetailsViewModel.isFirstPageViewBuilder?Stack(
+    return quranDetailsViewModel.isFirstPageViewBuilder!?Stack(
       children: [
         SvgPicture.asset(settingsProvider.isDarkEnabled()?"assets/images/details_screen/quran_details/surah_banner2.svg":"assets/images/details_screen/quran_details/surah_banner1.svg",width: MediaQuery.of(context).size.width * .98),
         Align(heightFactor: 0.8,child: Center(child: Text(settingsProvider.isLanguageEnglish()? quranDetailsViewModel.informationAboutTheSurahModel.englishName??"":  quranDetailsViewModel.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri)))

@@ -11,7 +11,7 @@ class DisplayIntroForSurah extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuranDetailsViewModel quranDetailsViewModel = Provider.of<QuranDetailsViewModel>(context);
-    return quranDetailsViewModel.isFirstPageViewBuilder? const Column(
+    return quranDetailsViewModel.isFirstPageViewBuilder!? const Column(
       children: [
         DisplaySurahName(),
         Padding(

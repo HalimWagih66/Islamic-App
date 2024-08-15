@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../../provider/settings_provider.dart';
 import '../../view_model/quran_details_view_model.dart';
-import 'display_aya.dart';
+import 'display_ayahs.dart';
 import 'display_intro_for_surah.dart';
 import 'header_of_the_surah.dart';
 
@@ -22,21 +22,21 @@ class DisplayThePage extends StatelessWidget {
       onPageChanged: (value) {
         quranDetailsViewModel.filterTheSurahByPage(page: value + 1,
             surahNumber: quranDetailsViewModel.informationAboutTheSurahModel.number!.toInt());
-        if (value == 1) {
+        if (quranDetailsViewModel.isFirstPageViewBuilder!) {
           quranDetailsViewModel.isFirstPageViewBuilder = false;
-        } else if (value == 0) {
+        } else if(value == 0){
           quranDetailsViewModel.isFirstPageViewBuilder = true;
         }
       },
+      controller: quranDetailsViewModel.pageController,
       itemBuilder: (context, index) => CustomScrollView(
         slivers: [
             const SliverToBoxAdapter(child:  HeaderOfTheSurah()),
              const SliverToBoxAdapter(child: DisplayIntroForSurah()),
-            SliverToBoxAdapter(child: DisplayAya(items: quranDetailsViewModel.pageVerses)),
+            SliverToBoxAdapter(child: DisplayAyahs(items: quranDetailsViewModel.pageVerses)),
             SliverFillRemaining(hasScrollBody: false,child: Align(alignment: Alignment.bottomCenter,child: Text(quranDetailsViewModel.pageVerses[0].page.toString(),style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri,)))
           ],
       ),
     );
-    // SliverFillRemaining(hasScrollBody: false,child: Text("1",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri,))
   }
 }
