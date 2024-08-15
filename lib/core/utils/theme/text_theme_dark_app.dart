@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/core/utils/theme/theme_app.dart';
 
 import 'constant_color.dart';
 
 class TextThemeDarkApp implements ThemeApp{
   @override
-  TextStyle font25SecondPrimarySemiBoldElMessiri = GoogleFonts.elMessiri(
+  TextStyle font25SecondPrimarySemiBoldElMessiri = TextStyle(
       fontSize: 25.sp,
+      fontFamily: "ElMessiri",
       fontWeight: FontWeight.w600,
       color: secondPrimaryDarkColor
   );
 
   @override
-  TextStyle font25SecondPrimaryRegularInter = GoogleFonts.inter(
+  TextStyle font25SecondPrimaryRegularInter = TextStyle(
       fontSize: 25.sp,
+      fontFamily: "Inter",
       fontWeight: FontWeight.w400,
       color: secondPrimaryDarkColor
   );
 
   @override
-  TextStyle font12SecondPrimaryRegularInter = GoogleFonts.inter(
+  TextStyle font12SecondPrimaryRegularInter = TextStyle(
       fontSize: 15.sp,
+      fontFamily: "Inter",
       fontWeight: FontWeight.w400,
       color: secondPrimaryDarkColor
   );
 
   @override
-  TextStyle font25ThirdColorRegularInter = GoogleFonts.inter(
+  TextStyle font25ThirdColorRegularInter = TextStyle(
       fontSize: 25.sp,
+      fontFamily: "Inter",
       fontWeight: FontWeight.w400,
       color: thirdDarkColor
   );

@@ -111,6 +111,13 @@ flutter:
     - family: UthmanicHafs
       fonts:
          - asset: assets/fonts/UthmanicHafs.ttf
+    - family: ElMessiri
+      fonts:
+        - asset: assets/fonts/ElMessiri.ttf
+          weight: 600
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
