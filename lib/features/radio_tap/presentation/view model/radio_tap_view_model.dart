@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:islamic_app/core/base/base_view_model.dart';
+import 'package:islamic_app/core/utils/services/api/api_endpoints.dart';
 import 'package:islamic_app/core/utils/shared/cache/share_preferences/cache_radio_app.dart';
 import 'package:islamic_app/features/radio_tap/data/repos/radio_tap_repo.dart';
 import 'package:islamic_app/features/radio_tap/presentation/view%20model/radio_tap_navigator.dart';
@@ -29,7 +30,7 @@ import '../../data/model.radio/radio.dart';
     selectedRadioStation = CacheRadioApp.getNumberRadioStation()??0;
   }
   void fetchRadioSounds(String language)async{
-    var result = await radioTapRepo.fetchRadioSounds(endPoint: 'radios',queryParameters: {"language":"ar"});
+    var result = await radioTapRepo.fetchRadioSounds(endPoint: ApiEndPoints.soundsRadio,queryParameters: {"language":language});
     result.fold((failure) {
       errorMessage = failure.errorMessage;
     }, (items) {

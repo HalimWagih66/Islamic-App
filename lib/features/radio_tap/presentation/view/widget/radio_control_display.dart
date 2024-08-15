@@ -16,8 +16,9 @@ class _RadioControlDisplayState extends State<RadioControlDisplay> {
   @override
   void initState() {
     super.initState();
-    Provider.of<RadioTapViewModel>(context,listen: false).fetchRadioSounds("ar");
+    fetchSoundsRadio();
   }
+
   @override
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
@@ -29,5 +30,9 @@ class _RadioControlDisplayState extends State<RadioControlDisplay> {
     }else{
       return const RadioItem();
     }
+  }
+  void fetchSoundsRadio() {
+    String languageCode = Provider.of<SettingsProvider>(context,listen: false).languageCode == "en"?"eng":"ar";
+    Provider.of<RadioTapViewModel>(context,listen: false).fetchRadioSounds(languageCode);
   }
 }
