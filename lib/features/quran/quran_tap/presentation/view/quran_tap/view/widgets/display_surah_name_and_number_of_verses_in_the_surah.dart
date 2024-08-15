@@ -57,13 +57,13 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
                         border: Border(bottom: BorderSide(color: settingsProvider.themeApp.primaryColor,style: BorderStyle.solid,width: 3.h))
                     ),
                     children: [
-                      Text(widget.informationAboutTheSurahModel.numberOfAyahs.toString(),style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri.copyWith(fontSize: 20.sp,height: 3),textAlign: TextAlign.center),
+                      Text(widget.informationAboutTheSurahModel.numberOfAyahs.toString(),style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri.copyWith(height: 3,fontWeight: FontWeight.w600),textAlign: TextAlign.center),
                       CustomVerticalDivider(primaryColor: settingsProvider.themeApp.primaryColor),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Transform.translate(offset: Offset(-50.w,0),child: getBookMark()),
-                          Center(child: Text(settingsProvider.isLanguageEnglish()?widget.informationAboutTheSurahModel.englishName??"":widget.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri,textAlign: TextAlign.center)),
+                          Center(child: Text(settingsProvider.isLanguageEnglish()?widget.informationAboutTheSurahModel.englishName??"":widget.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri.copyWith(fontWeight: FontWeight.w600),textAlign: TextAlign.center)),
                         ],
                       )
                     ]

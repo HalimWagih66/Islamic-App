@@ -38,7 +38,7 @@ class _AzkarDetailsViewState
             onPressed: () {
               GoRouter.of(context).pop();
             },
-            color: settingsProvider.themeApp.primaryColor,
+            color: settingsProvider.themeApp.secondPrimaryColor,
           ),
         ),
         body: ChangeNotifierProvider(

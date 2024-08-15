@@ -16,11 +16,11 @@ class DisplayZakrDetails extends StatelessWidget {
       children: [
         DisplayHeaderTheZakrDetails(zakrModel: zakrModel),
         const SizedBox(height: 10),
-        DisplayContentTheZakr(description: zakrModel.zekr!),
+        DisplayContentTheZakr(content: zakrModel.zekr!),
         const SizedBox(height: 10),
          Align(alignment: Alignment.centerLeft,child: DisplayContentReferenceTheZakr(reference: zakrModel.reference!,)),
         const SizedBox(height: 10),
-        DisplayZakrDescription(description: zakrModel.description!)
+        zakrModel.description!.isNotEmpty?DisplayZakrDescription(description: zakrModel.description!):const SizedBox()
       ]
     );
   }

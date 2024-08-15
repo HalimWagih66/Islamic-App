@@ -23,7 +23,7 @@ class _DisplayBodyTheAzkarDetailsState extends State<DisplayBodyTheAzkarDetails>
     if(azkarDetailsViewModel.itemsOfZakrModel.isEmpty){
       return const CustomCircularProgressIndicator();
     }else{
-      return DisplayListOfTheAzkarDetails();
+      return const DisplayListOfTheAzkarDetails();
     }
   }
 }
