@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:islamic_app/core/base/base_view_model.dart';
 import 'package:islamic_app/core/utils/shared/cache/share_preferences/cache_mark_quran.dart';
 import 'package:islamic_app/features/quran/quran_details/data/model/ayah_model.dart';
@@ -12,9 +13,11 @@ import '../../../quran_tap/data/model/Data.dart';
 class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
   QuranDetailsViewModel(this.quranDetailsRepo);
   QuranDetailsRepo quranDetailsRepo;
-  bool isFirstPageViewBuilder = true;
+  bool? isFirstPageViewBuilder;
   int lastPage = -1;
+  int? startPage;
   int countTheAyahs = 0;
+  var pageController = PageController();
   final audioPlayer = AudioPlayer();
   late InformationAboutTheSurahModel informationAboutTheSurahModel;
   SurahModel surahModel = SurahModel();
@@ -30,7 +33,7 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
   }
 
   void filterTheSurahByPage({required int page, required int surahNumber}){
-    setValueInCountTheAyahs(surahNumber);
+    setValueInCountTheAyahs(surahNumber,page);
     if(page > lastPage){
       casePageViewIsNext(page);
     }else{
@@ -40,10 +43,14 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
     notifyListeners();
   }
 
-  void setValueInCountTheAyahs(int surahNumber) {
+  void setValueInCountTheAyahs(int surahNumber,int page) {
     //delete basmallah from Al-Faatiha surah
     if(surahNumber == 1){
       countTheAyahs = 1;
+    }else if(page > (lastPage + 2)){
+      while(surahModel.ayahs?[countTheAyahs].pageInSurah?.toInt() != page){
+        countTheAyahs++;
+      }
     }else if(lastPage == -1){
       countTheAyahs = 0;
     }
@@ -89,10 +96,10 @@ class QuranDetailsViewModel extends BaseViewModel<QuranDetailsNavigator>{
     await audioPlayer.pause();
   }
   Future<void>saveBookMark({required int page,required int surahNumber})async{
-    await CacheMarkQuran.saveMarkQuran(page, surahNumber);
+    await CacheMarkQuran.saveMarkQuran(page:page, surahNumber:surahNumber);
     notifyListeners();
   }
   Map<String, dynamic>? getBookMark(){
-     return CacheMarkQuran.getMarkQuran();
+     return CacheMarkQuran.getBookMarkQuran();
   }
 }
