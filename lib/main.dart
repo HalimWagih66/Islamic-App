@@ -9,7 +9,6 @@ import 'package:islamic_app/my_application.dart';
 import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'features/quran/quran_details/presentation/view_model/quran_details_view_model.dart';
 
 Future<void> main() async {

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/core/utils/theme/text_theme_dark_app.dart';
-import 'package:islamic_app/core/utils/theme/text_theme_light_app.dart';
-import 'package:islamic_app/core/utils/theme/theme_app.dart';
 import '../core/utils/shared/cache/share_preferences/cache_app_settings_app.dart';
 
 class SettingsProvider extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;
-  ThemeApp themeApp = TextThemeLightApp();
   String _languageCode = "ar";
   SettingsProvider() {
     initializeValues();
@@ -28,10 +24,8 @@ class SettingsProvider extends ChangeNotifier {
   void initializeThemeMode() {
     if(CacheAppSettingApp.getStateThemeModeApp() == null){
       _themeMode = ThemeMode.system;
-      themeApp = ThemeMode.system == ThemeMode.dark?TextThemeDarkApp():TextThemeLightApp();
     }else{
       _themeMode = CacheAppSettingApp.getStateThemeModeApp() == "dark"?ThemeMode.dark:ThemeMode.light;
-      themeApp = CacheAppSettingApp.getStateThemeModeApp() == "dark"?TextThemeDarkApp():TextThemeLightApp();
     }
   }
   ThemeMode get themeMode => _themeMode;
@@ -58,7 +52,6 @@ class SettingsProvider extends ChangeNotifier {
   }
   Future<void> changeThemeMode(ThemeMode themeMode)async{
     this.themeMode = themeMode;
-    themeApp = themeMode == ThemeMode.dark?TextThemeDarkApp():TextThemeLightApp();
     await CacheAppSettingApp.savedStateThemeModeApp(themeMode);
     notifyListeners();
   }

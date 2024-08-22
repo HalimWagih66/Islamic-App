@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:islamic_app/provider/settings_provider.dart';
-import 'package:provider/provider.dart';
+import '../../../../../my_application.dart';
 
 class CustomVerticalDividerForContentTasbeeh extends StatelessWidget {
   const CustomVerticalDividerForContentTasbeeh({
@@ -10,9 +9,8 @@ class CustomVerticalDividerForContentTasbeeh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context);
     return VerticalDivider(
-      color: settingsProvider.themeApp.thirdPrimaryColor,
+      color: themeApp.thirdPrimaryColor,
       width: 2,
     );
   }

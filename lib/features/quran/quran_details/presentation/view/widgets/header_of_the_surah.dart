@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamic_app/to_arabic_no_covertor.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../../../my_application.dart';
 import '../../../../../../provider/settings_provider.dart';
 import '../../view_model/quran_details_view_model.dart';
 import 'display_book_mark.dart';
@@ -15,11 +16,11 @@ class HeaderOfTheSurah extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(getSurahName(settingsProvider, quranDetailsViewModel),style: settingsProvider.themeApp.font12SecondPrimaryRegularInter),
+        Text(getSurahName(settingsProvider, quranDetailsViewModel),style: themeApp.font12SecondPrimaryRegularInter),
         Row(
           children: [
-            Text("${AppLocalizations.of(context)!.aljuz} : ",style: settingsProvider.themeApp.font12SecondPrimaryRegularInter,),
-            Text("${getAljuzNumber(settingsProvider, quranDetailsViewModel)}",style: settingsProvider.themeApp.font12SecondPrimaryRegularInter,),
+            Text("${AppLocalizations.of(context)!.aljuz} : ",style: themeApp.font12SecondPrimaryRegularInter,),
+            Text("${getAljuzNumber(settingsProvider, quranDetailsViewModel)}",style: themeApp.font12SecondPrimaryRegularInter,),
 
             const DisplayBookMark()
           ],

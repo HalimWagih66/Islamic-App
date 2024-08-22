@@ -5,6 +5,8 @@ import 'package:islamic_app/features/radio_tap/presentation/view/widget/radio_it
 import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../my_application.dart';
+
 class RadioControlDisplay extends StatefulWidget {
   const RadioControlDisplay({super.key});
 
@@ -21,12 +23,11 @@ class _RadioControlDisplayState extends State<RadioControlDisplay> {
 
   @override
   Widget build(BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context);
     var radioTapViewModel = Provider.of<RadioTapViewModel>(context);
     if(radioTapViewModel.errorMessage.isEmpty && radioTapViewModel.radioSounds.isEmpty){
       return const CustomCircularProgressIndicator();
     }else if(radioTapViewModel.errorMessage.isNotEmpty){
-      return Center(child: Text(radioTapViewModel.errorMessage,style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri,textAlign: TextAlign.center,));
+      return Center(child: Text(radioTapViewModel.errorMessage,style: themeApp.font25SecondPrimarySemiBoldElMessiri,textAlign: TextAlign.center,));
     }else{
       return const RadioItem();
     }

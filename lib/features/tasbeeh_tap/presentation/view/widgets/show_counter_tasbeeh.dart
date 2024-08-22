@@ -5,6 +5,8 @@ import 'package:islamic_app/features/tasbeeh_tap/presentation/view_model/tasbeeh
 import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../my_application.dart';
+
 
 class ShowCounterTasbeeh extends StatelessWidget {
   const ShowCounterTasbeeh({super.key});
@@ -27,7 +29,7 @@ class ShowCounterTasbeeh extends StatelessWidget {
           color: settingsProvider.isDarkEnabled()?thirdDarkColor:const Color(0xffc9b496),
         ),
         padding: EdgeInsets.symmetric(vertical: 20.h,horizontal: 20.h),
-        child: Text(tasbeehTapViewModel.counterTasbeeh.toString(), style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri),
+        child: Text(tasbeehTapViewModel.counterTasbeeh.toString(), style: themeApp.font25SecondPrimarySemiBoldElMessiri),
       ),
     );
   }

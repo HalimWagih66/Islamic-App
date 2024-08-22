@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:islamic_app/core/utils/widgets/custom_elevated_button.dart';
 import 'package:islamic_app/features/tasbeeh_tap/presentation/view/widgets/show_bottom_sheet_tasbeeh.dart';
 import 'package:islamic_app/features/tasbeeh_tap/presentation/view_model/tasbeeh_tap_view_model.dart';
-import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
+import '../../../../../my_application.dart';
 import 'custom_vertical_divider.dart';
 
 class CustomElevatedButtonForTasbeeh extends StatelessWidget {
@@ -12,7 +12,6 @@ class CustomElevatedButtonForTasbeeh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context);
     TasbeehTapViewModel tasbeehTapViewModel = Provider.of<TasbeehTapViewModel>(
         context);
     return Padding(
@@ -21,7 +20,7 @@ class CustomElevatedButtonForTasbeeh extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: settingsProvider.themeApp.primaryColor,
+          color: themeApp.primaryColor,
         ),
 
         child: IntrinsicHeight(
@@ -32,7 +31,7 @@ class CustomElevatedButtonForTasbeeh extends StatelessWidget {
                 child: CustomElevatedButton(
                   onPressed: tasbeehTapViewModel.onTapPressNextContentTasbeeh,
                 onLongPress: tasbeehTapViewModel.onLongPressNextContentTasbeeh,
-                  child: Icon(FontAwesomeIcons.angleRight,color: settingsProvider.themeApp.thirdPrimaryColor),
+                  child: Icon(FontAwesomeIcons.angleRight,color: themeApp.thirdPrimaryColor),
                 ),
               ),
               const CustomVerticalDividerForContentTasbeeh(),
@@ -43,7 +42,7 @@ class CustomElevatedButtonForTasbeeh extends StatelessWidget {
                     await showBottomSheet(context);
                   },
                 onPressed: tasbeehTapViewModel.onTapClickButtonCounterTasbeeh,
-                  child: Text(tasbeehTapViewModel.contentTasbeeh[tasbeehTapViewModel.selectedContentTasbeeh],style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri.copyWith(color: settingsProvider.themeApp.thirdPrimaryColor,),textAlign: TextAlign.center,),
+                  child: Text(tasbeehTapViewModel.contentTasbeeh[tasbeehTapViewModel.selectedContentTasbeeh],style: themeApp.font25SecondPrimarySemiBoldElMessiri.copyWith(color: themeApp.thirdPrimaryColor,),textAlign: TextAlign.center,),
                 ),
               ),
               const CustomVerticalDividerForContentTasbeeh(),
@@ -51,7 +50,7 @@ class CustomElevatedButtonForTasbeeh extends StatelessWidget {
                 child: CustomElevatedButton(
                   onPressed: tasbeehTapViewModel.onPressedBackContentTasbeeh,
                   onLongPress: tasbeehTapViewModel.onLongBackContentTasbeeh,
-                  child: Icon(FontAwesomeIcons.angleLeft,color: settingsProvider.themeApp.thirdPrimaryColor,),
+                  child: Icon(FontAwesomeIcons.angleLeft,color: themeApp.thirdPrimaryColor,),
                 ),
               ),
             ],
