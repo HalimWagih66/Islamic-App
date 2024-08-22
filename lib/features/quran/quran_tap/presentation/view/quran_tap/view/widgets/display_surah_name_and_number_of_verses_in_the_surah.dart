@@ -7,6 +7,7 @@ import 'package:islamic_app/core/utils/shared/cache/share_preferences/cache_mark
 import 'package:islamic_app/features/quran/quran_details/presentation/view/quran_details_view.dart';
 import 'package:islamic_app/features/quran/quran_details/presentation/view_model/quran_details_view_model.dart';
 import 'package:provider/provider.dart';
+import '../../../../../../../../my_application.dart';
 import '../../../../../../../../provider/settings_provider.dart';
 import '../../../../../data/model/Data.dart';
 import 'custom_vertical_divider.dart';
@@ -54,16 +55,16 @@ class _DisplaySurahNameAndNumberOfVersesInTheSurahState extends State<DisplaySur
               children: [
                 TableRow(
                     decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: settingsProvider.themeApp.primaryColor,style: BorderStyle.solid,width: 3.h))
+                        border: Border(bottom: BorderSide(color: themeApp.primaryColor,style: BorderStyle.solid,width: 3.h))
                     ),
                     children: [
-                      Text(widget.informationAboutTheSurahModel.numberOfAyahs.toString(),style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri.copyWith(height: 3,fontWeight: FontWeight.w600),textAlign: TextAlign.center),
-                      CustomVerticalDivider(primaryColor: settingsProvider.themeApp.primaryColor),
+                      Text(widget.informationAboutTheSurahModel.numberOfAyahs.toString(),style: themeApp.font20SecondPrimaryRegularAmiri.copyWith(height: 3,fontWeight: FontWeight.w600),textAlign: TextAlign.center),
+                      CustomVerticalDivider(primaryColor: themeApp.primaryColor),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Transform.translate(offset: Offset(-50.w,0),child: getBookMark()),
-                          Center(child: Text(settingsProvider.isLanguageEnglish()?widget.informationAboutTheSurahModel.englishName??"":widget.informationAboutTheSurahModel.name??"",style: settingsProvider.themeApp.font20SecondPrimaryRegularAmiri.copyWith(fontWeight: FontWeight.w600),textAlign: TextAlign.center)),
+                          Center(child: Text(settingsProvider.isLanguageEnglish()?widget.informationAboutTheSurahModel.englishName??"":widget.informationAboutTheSurahModel.name??"",style: themeApp.font20SecondPrimaryRegularAmiri.copyWith(fontWeight: FontWeight.w600),textAlign: TextAlign.center)),
                         ],
                       )
                     ]

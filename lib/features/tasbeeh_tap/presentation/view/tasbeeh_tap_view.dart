@@ -6,7 +6,7 @@ import 'package:islamic_app/features/tasbeeh_tap/presentation/view_model/tasbeeh
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../core/base/base_state.dart';
-import '../../../../provider/settings_provider.dart';
+import '../../../../my_application.dart';
 import '../../../azkar/azkar_tap/presentation/view/widget/display_body_image.dart';
 import '../../../azkar/azkar_tap/presentation/view/widget/display_head_image.dart';
 import '../../data/repos/tasbeeh_tap_repo_local.dart';
@@ -22,7 +22,6 @@ class TasbeehTapView extends StatefulWidget {
 class _TasbeehTapViewState extends BaseState<TasbeehTapView,TasbeehTapViewModel> implements TasbeehTapNavigator{
   @override
   Widget build(BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context);
     return ChangeNotifierProvider(
       create: (context) => viewModel,
       child: SingleChildScrollView(
@@ -31,7 +30,7 @@ class _TasbeehTapViewState extends BaseState<TasbeehTapView,TasbeehTapViewModel>
             const DisplayHeadImage(),
             const DisplayBodyImage(),
             SizedBox(height: 70.h),
-            Text(AppLocalizations.of(context)!.number_of_verses,style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri,),
+            Text(AppLocalizations.of(context)!.number_of_verses,style: themeApp.font25SecondPrimarySemiBoldElMessiri,),
             SizedBox(height: 26.h),
             const DisplayCounterTasbeehAndContentTasbeeh(),
             const SizedBox(

@@ -3,6 +3,7 @@ import 'package:islamic_app/core/utils/widgets/custom_background_container_for_a
 import 'package:islamic_app/features/home_layout/presentation/view_model/home_layout_view_model.dart';
 import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
+import '../../../../../my_application.dart';
 import 'custom_app_bar.dart';
 import 'list_of_bottom_navigation_item.dart';
 
@@ -24,7 +25,7 @@ class HomeLayoutDetails extends StatelessWidget {
           onTap: (value) {
             homeLayoutViewModel.changeTap(value);
           },
-          items: listBottomNavigationItem(tapsName: tapsName, context: context, color: settingsProvider.isDarkEnabled() ? settingsProvider.themeApp.thirdPrimaryColor : settingsProvider.themeApp.primaryColor, selectedItem: homeLayoutViewModel.selectedItem),
+          items: listBottomNavigationItem(tapsName: tapsName, context: context, color: settingsProvider.isDarkEnabled() ? themeApp.thirdPrimaryColor : themeApp.primaryColor, selectedItem: homeLayoutViewModel.selectedItem),
         ),
       ),
     );

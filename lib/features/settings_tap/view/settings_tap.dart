@@ -5,6 +5,7 @@ import 'package:islamic_app/features/settings_tap/view/widget/custom_bottom_shee
 import 'package:islamic_app/features/settings_tap/view/widget/custom_bottom_sheet_for_theme.dart';
 import 'package:islamic_app/features/settings_tap/view/widget/field_choose_app_state.dart';
 import 'package:provider/provider.dart';
+import '../../../my_application.dart';
 import '../../../provider/settings_provider.dart';
 
 class SettingsTap extends StatelessWidget {
@@ -18,7 +19,7 @@ class SettingsTap extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(AppLocalizations.of(context)!.theme, style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri),
+          Text(AppLocalizations.of(context)!.theme, style: themeApp.font25SecondPrimarySemiBoldElMessiri),
           SizedBox(
             height: 12.h,
           ),
@@ -33,7 +34,7 @@ class SettingsTap extends StatelessWidget {
           SizedBox(
             height: 30.h,
           ),
-          Text(AppLocalizations.of(context)!.language, style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri),
+          Text(AppLocalizations.of(context)!.language, style: themeApp.font25SecondPrimarySemiBoldElMessiri),
           SizedBox(
             height: 20.h,
           ),

@@ -6,9 +6,9 @@ import 'package:islamic_app/features/azkar/azkar_details/data/repos/azkar_detail
 import 'package:islamic_app/features/azkar/azkar_details/presentation/view/widgets/display_body_the_azkar_details.dart';
 import 'package:islamic_app/features/azkar/azkar_details/presentation/view_model/azkar_details_navigator.dart';
 import 'package:islamic_app/features/azkar/azkar_details/presentation/view_model/azkar_details_view_model.dart';
-import 'package:islamic_app/provider/settings_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../../../core/utils/widgets/show_toast.dart';
+import '../../../../../my_application.dart';
 import '../../../../home_layout/presentation/view/widgets/custom_app_bar.dart';
 
 class AzkarDetailsView extends StatefulWidget {
@@ -27,7 +27,6 @@ class _AzkarDetailsViewState
   @override
   Widget build(BuildContext context) {
     viewModel.categoryName = widget.categoryName;
-    var settingsProvider = Provider.of<SettingsProvider>(context);
     return CustomBackgroundContainerForApp(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -38,7 +37,7 @@ class _AzkarDetailsViewState
             onPressed: () {
               GoRouter.of(context).pop();
             },
-            color: settingsProvider.themeApp.secondPrimaryColor,
+            color: themeApp.secondPrimaryColor,
           ),
         ),
         body: ChangeNotifierProvider(
@@ -56,6 +55,6 @@ class _AzkarDetailsViewState
 
   @override
   Future<void> displayToast(String message) async{
-    await showToast(msg: message,textColor: Provider.of<SettingsProvider>(context,listen: false).themeApp.secondPrimaryColor,backgroundColor: Provider.of<SettingsProvider>(context,listen: false).themeApp.thirdPrimaryColor);
+    await showToast(msg: message,textColor: themeApp.secondPrimaryColor,backgroundColor: themeApp.thirdPrimaryColor);
   }
 }

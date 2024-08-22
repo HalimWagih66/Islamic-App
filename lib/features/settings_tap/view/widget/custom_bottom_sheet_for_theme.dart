@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamic_app/features/settings_tap/view/widget/custom_background_container.dart';
 import 'package:provider/provider.dart';
 import '../../../../../provider/settings_provider.dart';
+import '../../../../my_application.dart';
 import 'button_style_bottom_sheet.dart';
 class CustomBottomSheetForTheme extends StatelessWidget {
   const CustomBottomSheetForTheme({super.key});
@@ -36,19 +37,17 @@ class CustomBottomSheetForTheme extends StatelessWidget {
   }
 
   Widget getSelectedWidget(String title, BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context,listen: false);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri),
-        Icon(Icons.check, color: settingsProvider.themeApp.primaryColor),
+        Text(title, style: themeApp.font25SecondPrimarySemiBoldElMessiri),
+        Icon(Icons.check, color: themeApp.primaryColor),
       ],
     );
   }
 
   Widget getUnSelectedWidget(String title, BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context,listen: false);
-    return Text(title, style: settingsProvider.themeApp.font25SecondPrimarySemiBoldElMessiri);
+    return Text(title, style: themeApp.font25SecondPrimarySemiBoldElMessiri);
   }
   Widget firstChild(BuildContext context){
     var provider = Provider.of<SettingsProvider>(context,listen: false);
