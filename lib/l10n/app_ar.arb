@@ -1,0 +1,18 @@
+{
+  "app_title": "اسلامي",
+  "surah_name": "اسم السوره",
+  "quran": "قران",
+  "hadith": "حديث",
+  "azkar": "اذكار",
+  "radio": "الاذاعه",
+  "dadiths": "الاحاديث",
+  "tasbeeh": "تسبيح",
+  "settings": "الاعدادات",
+  "theme": "المظهر",
+  "dark": "داكن",
+  "light": "فاتح",
+  "language": "اللغه",
+  "number_of_praises": "عدد التسبيحات",
+  "number_of_verses": "عدد الايات",
+  "aljuz": "الجزء"
+}
